@@ -38,7 +38,7 @@ class AddItem extends Component{
                     </div>
                     <div className ="row">
                         <div className ="col s8 offset-s2 right-align">
-                        <button className="btn red waves-effect waves-light" type="submit" name="action"><i
+                        <button className="btn blue waves-effect waves-light" type="submit" name="action"><i
                             className="material-icons">add</i></button>
                         </div>
                     </div>
