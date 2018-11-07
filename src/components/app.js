@@ -18,6 +18,15 @@ class App extends Component{
             list: []
         });
     }
+    // get the index of the todo item and remove it from state
+    deleteItem = (index) =>{
+        const listCopy = this.state.list.slice();
+        listCopy.splice(index,1);
+
+        this.setState({
+            list: listCopy,
+        });
+    };
     addItem = (item) =>{
         item._id= randomString(8);
         // take original array and pull it apart
@@ -42,7 +51,7 @@ class App extends Component{
             <div className ="container">
                 <h1 className ="center">To Do list</h1>
                 <Add add={this.addItem}/>
-                <List data ={this.state.list}/>
+                <List delete={this.deleteItem} data ={this.state.list}/>
             </div>
         )
     }
