@@ -11,7 +11,7 @@ class List extends Component{
             return (<li className ="collection-item row" key={item._id}>
                         <div className="col s8">{item.title}</div>
                         <div className="col s4 right-align">
-                            <button onClick = {()=>{this.props.delete(index)}} className="btn red waves-effect waves-light" type="submit" name="action"><i className="material-icons">delete</i></button>
+                            <button onClick = {()=>{this.props.delete(item._id)}} className="btn red waves-effect waves-light" type="submit" name="action"><i className="material-icons">delete</i></button>
                         </div>
                     </li>)
             // react already loops over an array for us
