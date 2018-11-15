@@ -6,7 +6,7 @@ import Add from './add_item'
 import 'materialize-css/dist/js/materialize';
 // you want to make sure that your import comes after materialize
 import '../assets/css/app.css'
-import{randomString} from '../helpers';
+import {Route} from 'react-router-dom'
 import axios from 'axios';
 
 //creating some helper const's to prevent from continuous typing
@@ -101,14 +101,16 @@ class App extends Component{
 
     }
     render(){
-        const{error} = this.state;
+        const{error, list} = this.state;
         return(
             <div className ="container">
-                <h1 className ="center">To Do list</h1>
-                <Add add={this.addItem}/>
-                {//if there is an error display an h1 with a classname of center
-                    error ? <h1 className = "center red-text">{error}</h1>: <List delete={this.deleteItem} data ={this.state.list}/>
-                }
+                <Route exact path="/" render={()=>{
+                    return <List delete={this.deleteItem} data={list} error ={error}/>
+                }}/>
+                <Route path ="/add-item" render={()=>{
+                    return <Add add={this.addItem()} />
+                }}/>
+
             </div>
         )
     }

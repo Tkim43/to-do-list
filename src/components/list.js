@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
+import {Link} from 'react-router-dom'
 
 
 class List extends Component{
     // automatically constructor gets called, render gets called then componentDidMount gets called
     // when the setState changes render gets called again
     render(){
+        if(this.props.error){
+            return(
+                <h1 className="center red-text">{this.props.error}</h1>
+            )
+        }
         // map calls a callback function and loops through every item
         const listElements = this.props.data.map((item, index)=>{
             // creates a lot of <li>'s
@@ -18,9 +24,18 @@ class List extends Component{
             // dont use index its bad to use
         });
         return(
-            <ul className ="collection">
-                {listElements}
-            </ul>
+            <div>
+                <h1 className="center">To Do List</h1>
+                <div className="row">
+                    <div className="col s12 right-align">
+                        <Link to="/add-item" className="btn blue darken-2" >Add Item</Link>
+                    </div>
+                </div>
+                <ul className ="collection">
+                    {listElements}
+                </ul>
+            </div>
+
         )
     }
 }

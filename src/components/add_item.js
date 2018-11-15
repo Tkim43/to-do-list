@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {Link} from 'react-router-dom'
 
 class AddItem extends Component{
     // this does the same thing as constructor and this.state
@@ -23,26 +24,34 @@ class AddItem extends Component{
     };
     render(){
         return(
-                <form onSubmit={this.handleAddingItem}>
-                    <div className="row">
-                        <div className="input-field col s8 offset-s2">
-                            <input type="text" value={this.state.title} onChange={(e) => this.setState({title: e.target.value})}/>
-                            <label>Title</label>
-                        </div>
-                    </div>
+                <div className="center">
+                    <h1 className="center"> Add to do Item</h1>
                     <div className ="row">
-                        <div className="input-field col s8 offset-s2">
-                            <input type="text" value={this.state.details} onChange={e=>this.setState({details: e.target.value})}/>
-                            <label>Details</label>
+                        <div className ="col s12 right-align">
+                            <Link to="/" className="btn green darken-2">Back To List </Link>
                         </div>
                     </div>
-                    <div className ="row">
-                        <div className ="col s8 offset-s2 right-align">
-                        <button className="btn blue waves-effect waves-light" type="submit" name="action"><i
-                            className="material-icons">add</i></button>
+                    <form onSubmit={this.handleAddingItem}>
+                        <div className="row">
+                            <div className="input-field col s8 offset-s2">
+                                <input type="text" value={this.state.title} onChange={(e) => this.setState({title: e.target.value})}/>
+                                <label>Title</label>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                        <div className ="row">
+                            <div className="input-field col s8 offset-s2">
+                                <input type="text" value={this.state.details} onChange={e=>this.setState({details: e.target.value})}/>
+                                <label>Details</label>
+                            </div>
+                        </div>
+                        <div className ="row">
+                            <div className ="col s8 offset-s2 right-align">
+                                <button className="btn blue waves-effect waves-light" type="submit" name="action"><i
+                                    className="material-icons">add</i></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
         )
     };
 }
